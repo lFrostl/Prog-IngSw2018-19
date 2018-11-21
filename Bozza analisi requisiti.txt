@@ -1,0 +1,39 @@
+﻿
+Visualizzazione dei dati sotto diversi profili, la GUI mostrerà ai vari tipi di utente
+i dati relativi all'edificio, se amministratore di un edificio, a un quartiere nel caso di un
+ amministratore di zona o di una città intera nel caso di amministratore di una città
+
+Il sensore è l'unità minima di controllo nel progetto, esistono diversi tipi di sensori, di
+luminosità, di temperatura, di umidità e di pressione, sono dotati di un identificatore, 
+trasmettono l'informazione relativa al loro tipo e possiedono uno stato identificato come
+booleano che ne decretea lo stato di funzionamento o meno. Il numero di sensori presenti si 
+attesta su circa 150k e deve poter essere ampliabile.
+I sensori inviano il proprio segnale una volta al minuto ma nel caso di valori fuori 
+norma inviano il proprio stato con maggiore frequenza
+
+Gli edifici/aree contengono i media dai 10 ai 200 sensori
+
+Le zone identificate come quartieri contengono
+
+I segnali dei sensori contengono i valori del rispettivo sensore, l'identificatore 
+dell'edificio e della zona a cui appartiene, l'identificatore del sensore e lo stato(0/1) del 
+sensore stesso. La frequenza media dell'invio è 1 minuto ma può essere più alta in alcuni casi
+
+Lo stato di un sensore è una variabile posseduta dallo stesso. Il sensore a ogni invio segnale 
+(o lo invia solo al momento del cambiamento di stato) invia il proprio stato di funzionamento
+(0/1)
+
+La dashboard è una gui e serve a mostrare le viste dei vari amministratori con particolari 
+allerte o priorità di visualizzazione dei dati nei casi detti di stati problematici.
+Ipoteticamente i valori sulla dashboard potrebbero essere aggiornati ad ogni invio dei 
+sensori, ma per facilitare la fruibilità e la leggibilità si presuppone di dover aggiornare la 
+dashboard ogni circa 5 minuti
+
+Gli stati problematici da tenere conto sono gli stati di inattività di uno o più sensori
+in diverse zone o nella stessa e il rilevamento di dati anomali non conformi ai dati 
+solitamente fissati come standard nelle varie zone
+
+L'intervallo di tempo è il lasso di tempo in cui tutti vengono collezionati i dati
+da tutti i sensori prima di effettuare la visualizzazione in modo da ottenere un quadro 
+uniforme dello stato data il probabile invio non sincrono da parte degli stessi.
+L'intervallo sarà presumibilmente di un minuto
